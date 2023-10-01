@@ -1,0 +1,16 @@
+function [x,ff,xmatrix,alphavec]=descentgradient(maxit,x_0,z_0,alpha,beta,mu,bb,epsi,Dh_FT,Dv_FT,H_FT)
+x=x_0;
+xmatrix=[];
+z
+
+for i=1:maxit
+    [f1,g]=nonsmoothgradfun(mu,bb,epsi,x,Dh_FT,Dv_FT,H_FT);
+    
+    if norm(g(:))<tol
+        break
+    end
+    
+    z=beta*z+g;
+    x=x-alpha*z;
+    
+end
